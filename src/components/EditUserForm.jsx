@@ -9,11 +9,11 @@ const EditUserForm = (props) => {
     defaultValues: props.currentUser
   })
 
+  // LOS SIGUIENTES SET VALUE PERMITEN QUE SE MUESTREN LOS DATOS DEL ELEMENTO SELECCIONADO
   setValue('name', props.currentUser.name)
   setValue('username', props.currentUser.username)
 
   const onSubmit = (data, e) => {
-    // props.editUser(data)
 
     data.id = props.currentUser.id
     props.updateUser(props.currentUser.id, data)

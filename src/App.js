@@ -13,7 +13,7 @@ function App() {
   ]
 
 
-  // STATE
+  // STATE BASE
   const [users, setUsers] = useState(usersData)
 
   // AGREGAR USUARIOS
@@ -30,21 +30,28 @@ function App() {
   // ELIMINAR USUARIOS
 
   const deleteUser = (id) => {
+    // SE PROGRAMA QUE EL ARRAY USERS CONTENGA UNICAMENTE AQUELLOS ELEMENTOS QUE NO COINCIDAN CON LAS CARACTERISTICAS INDICADAS EN LA CONDICIONAL
     setUsers(users.filter(user => user.id !== id))
   }
 
 
   // EDITAR USUARIOS
+
+  // ESTE STATE HACE QUE POR DEFECTO EL FORM DE EDIT USER NO SEA VISIBLE AL CARGAR LA PAGINA
   const [editing, setEditing] = useState(false)
 
   const [currentUser, setCurrentUser] = useState({
+    // ESTE STATE PERMITE QUE POR DEFECTO EN EL FORM SE MUESTREN LOS DATOS QUE CONTIENE CADA ELEMENTO DEL OBJETO USER
+
     id: null,
     name: '', 
     username: ''
   })
 
   const editRow = (user) => {
+    // SE DETERMINA QUE AL PRESIONAR EL BOTON "EDIT" EL FORM EDIT USER SE HAGA VISIBLE
     setEditing(true)
+    // SE MUESTRAN LOS DATOS ACTUALES DEL OBJETO USER
     setCurrentUser({
       id: user.id,
       name: user.name,
